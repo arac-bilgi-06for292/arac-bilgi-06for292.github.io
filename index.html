@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#000000">
+  <title>Araç Tanıtım</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: #000;
+      overscroll-behavior-x: none;
+    }
+
+    body {
+      touch-action: pan-y;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .gorsel-alani {
+      position: relative;
+      width: 100%;
+      max-width: 100vw;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .gorsel-alani img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+      touch-action: pan-y;
+    }
+
+    .telefon-linki {
+      position: absolute;
+      left: 0.267%;
+      top: 72.818%;
+      width: 99.444%;
+      height: 12.190%;
+      z-index: 10;
+      display: block;
+      background: transparent;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: pan-y;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="gorsel-alani">
+    <img src="gorsel.jpg" alt="Araç tanıtım görseli" draggable="false">
+
+    <a
+      class="telefon-linki"
+      href="tel:+905416574242"
+      aria-label="0541 657 42 42 numarasını ara">
+    </a>
+  </main>
+</body>
+</html>
