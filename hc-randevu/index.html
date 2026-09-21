@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>HC Randevu Takip</title>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Arial;background:#f4f7f7;color:#172321}
+.wrap{max-width:520px;margin:12vh auto;padding:20px}
+.card{background:#fff;border:1px solid #dbe6e4;border-radius:18px;padding:24px;box-shadow:0 8px 28px #0000000d}
+.logo{width:48px;height:48px;border-radius:14px;background:#0f766e;color:white;display:grid;place-items:center;font-weight:900}
+h1{font-size:21px;margin:16px 0 8px}p{color:#62736f;line-height:1.5}
+.bad{color:#9a3434;background:#fff4f4;border:1px solid #efd2d2;border-radius:12px;padding:12px}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card"><div class="logo">HC</div><h1>HC Randevu Takip açılıyor…</h1><p>Uygulamanın güncel sürümü yükleniyor.</p><div id="err"></div></div></div>
+<script>
+(async()=>{
+  try{
+    const r=await fetch("https://ncoicjbyllvjwusayqzm.supabase.co/functions/v1/hc-randevu",{cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const app=await r.text();
+    if(!app.includes("<!doctype html>")&&!app.includes("<html")) throw new Error("Geçersiz uygulama çıktısı");
+    document.open();
+    document.write(app);
+    document.close();
+  }catch(e){
+    document.getElementById("err").innerHTML='<div class="bad"><b>Uygulama yüklenemedi.</b><br>'+String(e.message||e)+'</div>';
+  }
+})();
+</script>
+</body>
+</html>
